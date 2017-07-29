@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rela"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@mipmap/bg1" />
+
+    <include layout="@layout/layout_toolbar" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela"
+        android:padding="10dp"
+        android:text="使用浸入式是全屏的，状态栏与当前页面重叠
+         \n1、如果没有包含toolbar那么就不需要设置下移的视图， StatusBarUtil.setTranslucentForImageView(this,null);
+         \n\n2、如果包含了toolbar，根布局最好使用【相对布局】或者【帧布局】。注意要下移的视图是toolbar，而不是布局的根视图，如果设置下移根视图那么状态栏背景会变成黑色\n正确的是使用StatusBarUtil.setTranslucentForImageView(this,toolbar视图);
+         \n\n3、设置图片的控件不一定非要用imageview,可以是整个布局浸入" />
+
+
+</RelativeLayout>
