@@ -18,10 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ImageHeaderActivity"/>
-        <activity android:name=".ui.ImageFullActivity"/>
-        <activity android:name=".ui.NormalActivity"/>
-        <activity android:name=".ui.DrawerLayoutActivity"/>
+        <activity android:name=".ui.ImageHeaderActivity" />
+        <activity android:name=".ui.ImageFullActivity" />
+        <activity android:name=".ui.NormalActivity" />
+        <activity android:name=".ui.DrawerLayoutActivity" />
+        <activity android:name=".ui.PagerActivity" />
     </application>
 
 </manifest>

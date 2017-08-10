@@ -49,6 +49,16 @@
         android:onClick="onclick"
         android:text="    DrawerLayout界面设置" />
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="onclick"
+        android:text="fragment标题测试" />
+
 
 
 </LinearLayout>

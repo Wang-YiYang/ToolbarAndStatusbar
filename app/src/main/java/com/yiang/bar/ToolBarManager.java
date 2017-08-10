@@ -2,14 +2,13 @@ package com.yiang.bar;
 
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.yiang.bar.ui.BaseActivity;
 
 
 /**
@@ -19,20 +18,35 @@ import com.yiang.bar.ui.BaseActivity;
 public class ToolBarManager {
 
     private static final String TAG = "ToolBarManager";
-    private final ViewGroup mContent;
+    private final View mContent;
     private Toolbar toolbar;
-    private BaseActivity activity;
+    private AppCompatActivity activity;
 
     private TextView tvTitle;//标题
 
     /**
-     * 时间：2017/7/28
-     * 描述:构造
+     * activity中使用
+     *
+     * @param activity
      */
-    private ToolBarManager(BaseActivity activity) {
+    private ToolBarManager(AppCompatActivity activity) {
         this.activity = activity;
         //获取界面内容视图
-        mContent = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
+        mContent = activity.getWindow().getDecorView().findViewById(android.R.id.content);
+        initToolbar();
+    }
+
+    /**
+     * 在fragment中使用
+     *
+     * @param activity fragment所在界面
+     * @param view     fragment的视图
+     * @return
+     */
+    private ToolBarManager(AppCompatActivity activity, View view) {
+        this.activity = activity;
+        //获取界面内容视图
+        mContent = view;
         initToolbar();
     }
 
@@ -64,8 +78,25 @@ public class ToolBarManager {
         toolbar.setNavigationIcon(null);
     }
 
-    public static ToolBarManager with(BaseActivity activity) {
+    /**
+     * activity中使用
+     *
+     * @param activity
+     * @return
+     */
+    public static ToolBarManager with(AppCompatActivity activity) {
         return new ToolBarManager(activity);
+    }
+
+    /**
+     * 在fragment中使用
+     *
+     * @param activity fragment所在界面
+     * @param view     fragment的视图
+     * @return
+     */
+    public static ToolBarManager with(FragmentActivity activity, View view) {
+        return new ToolBarManager((AppCompatActivity) activity, view);
     }
 
     /**

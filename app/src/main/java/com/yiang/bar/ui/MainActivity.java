@@ -32,6 +32,9 @@ public class MainActivity extends BaseActivity {
             case R.id.button4:
                 startActivity(DrawerLayoutActivity.newInstance(context));
                 break;
+            case R.id.button5:
+                startActivity(PagerActivity.newInstance(context));
+                break;
 
 
         }

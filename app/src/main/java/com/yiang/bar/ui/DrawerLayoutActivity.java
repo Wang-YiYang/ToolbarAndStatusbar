@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 
 import com.yiang.bar.R;
 import com.yiang.bar.ToolBarManager;
 import com.yiang.bar.annotation.InjectLayout;
+import com.yiang.bar.utils.StatusBarUtil;
 
 
 /**
@@ -32,7 +34,7 @@ public class DrawerLayoutActivity extends BaseActivity {
         ToolBarManager.with(this).setBackgroundColor(android.R.color.transparent).setTitle("标题");
 
 //        //1、当设置有纯色的状态栏
-//        StatusBarUtil.setColorNoTranslucentForDrawerLayout(this, drawer, ContextCompat.getColor(this, R.color.white));
+        StatusBarUtil.setColorNoTranslucentForDrawerLayout(this, drawer, ContextCompat.getColor(this, R.color.colorAccent));
 //        //2、设置有颜色有和默认透明度的状态栏
 //        StatusBarUtil.setColorForDrawerLayout(this, drawer, ContextCompat.getColor(this, R.color.white));
 
