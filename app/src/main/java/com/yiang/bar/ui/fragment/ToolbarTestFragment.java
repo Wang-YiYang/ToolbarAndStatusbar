@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.yiang.bar.R;
 import com.yiang.bar.ToolBarManager;
+import com.yiang.bar.utils.StatusBarUtil;
 
 /**
  * Created by WYiang on 2017/8/10.
@@ -25,7 +26,11 @@ public class ToolbarTestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_test, container, false);
-        ToolBarManager.with(getActivity(), v).setTitle("hah");
+        ToolBarManager.with(getActivity(), v)
+                .setBackgroundColor(R.color.white)
+                .setTitle("hah", R.color.colorAccent)
+                .setNavigationIcon(R.mipmap.ic_launcher);
+        StatusBarUtil.setTranslucent(getActivity());
 
 
         return v;

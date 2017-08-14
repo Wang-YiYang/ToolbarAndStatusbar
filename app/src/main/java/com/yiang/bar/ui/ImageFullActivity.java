@@ -25,9 +25,9 @@ public class ImageFullActivity extends BaseActivity {
 //        //1、默认透明度状态栏
 //        StatusBarUtil.setTranslucentForImageView(this, null);//有一定透明度
 //        //2、纯色状态栏
-//        StatusBarUtil.setTranslucentForImageView(this,0, null);//纯色状态栏
+        StatusBarUtil.setTranslucentForImageView(this,0, null);//纯色状态栏
 
         //3、纯色状态栏
-        StatusBarUtil.setTranslucent(this);
+//        StatusBarUtil.setTranslucent(this);
     }
 }

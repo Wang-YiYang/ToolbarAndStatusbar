@@ -44,7 +44,7 @@ public class DrawerLayoutActivity extends BaseActivity {
 //        //5、自定义透明度的状态栏，如果主布局的背景是白色，状态栏文字不可见
 //        StatusBarUtil.setTranslucentForDrawerLayout(this, drawer, 0);
         //6、纯透明的状态栏，如果主布局的背景是白色，设置状态栏文字为黑色
-//        StatusBarUtil.setTranslucentForDrawerLayout(this, drawer, true);
+//        StatusBarUtil.setTranslucentForDrawerLayout(this, drawer, false);
 
 
     }

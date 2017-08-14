@@ -1,10 +1,10 @@
 package com.yiang.bar;
 
+import android.app.Activity;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -20,7 +20,7 @@ public class ToolBarManager {
     private static final String TAG = "ToolBarManager";
     private final View mContent;
     private Toolbar toolbar;
-    private AppCompatActivity activity;
+    private Activity activity;
 
     private TextView tvTitle;//标题
 
@@ -29,7 +29,7 @@ public class ToolBarManager {
      *
      * @param activity
      */
-    private ToolBarManager(AppCompatActivity activity) {
+    private ToolBarManager(Activity activity) {
         this.activity = activity;
         //获取界面内容视图
         mContent = activity.getWindow().getDecorView().findViewById(android.R.id.content);
@@ -43,7 +43,7 @@ public class ToolBarManager {
      * @param view     fragment的视图
      * @return
      */
-    private ToolBarManager(AppCompatActivity activity, View view) {
+    private ToolBarManager(Activity activity, View view) {
         this.activity = activity;
         //获取界面内容视图
         mContent = view;
@@ -61,12 +61,7 @@ public class ToolBarManager {
         }
         tvTitle = (TextView) toolbar.findViewById(R.id.toolbar_tv_title);
 
-        //setup
-        //setup
-        activity.setSupportActionBar(toolbar);
-        ActionBar actionBar = activity.getSupportActionBar();
-        actionBar.setTitle("");//不显示toolbar自带的图标
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        toolbar.setTitle("");//不显示toolbar自带的图标
         setNavigationIcon(0);//默认不显示返回图标
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,13 +110,15 @@ public class ToolBarManager {
      */
     public ToolBarManager setNavigationIcon(@DrawableRes int resId) {
         if (resId != 0) {
-            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationIcon(resId);
         } else {
-            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            toolbar.setNavigationIcon(null);
+//            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
         return this;
     }
+
 
     /**
      * 时间：2017/7/28
